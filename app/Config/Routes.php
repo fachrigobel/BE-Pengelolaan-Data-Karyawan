@@ -31,8 +31,10 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+$routes->post('/user/', 'User::index');
 $routes->get('/', 'Home::index');
 $routes->resource('karyawan');
+$routes->get('/group/(:alpha)', 'Karyawan::groupBy/$1');
 
 /*
  * --------------------------------------------------------------------

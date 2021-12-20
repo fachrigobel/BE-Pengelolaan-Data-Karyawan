@@ -119,4 +119,17 @@ class Karyawan extends ResourceController
             ], 200);
         }
     }
+
+    public function groupBy($keyword = null)
+    {
+        $res = $this->karyawanModel
+            ->groupStart()
+            ->where("role", $keyword)
+            ->orGroupStart()
+            ->where("status", $keyword)
+            ->groupEnd()
+            ->groupEnd()
+            ->findAll();
+        return $this->respond($res, 200);
+    }
 }
