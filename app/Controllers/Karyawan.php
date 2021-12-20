@@ -132,4 +132,14 @@ class Karyawan extends ResourceController
             ->findAll();
         return $this->respond($res, 200);
     }
+
+    public function search($keyword = null)
+    {
+        $res = $this->karyawanModel
+            ->like('nama', $keyword)
+            ->orLike('status', $keyword)
+            ->orLike('role', $keyword)
+            ->findAll();
+        return $this->respond($res, 200);
+    }
 }

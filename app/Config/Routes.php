@@ -35,6 +35,7 @@ $routes->post('/user/', 'User::index');
 $routes->get('/', 'Home::index');
 $routes->resource('karyawan');
 $routes->get('/group/(:alpha)', 'Karyawan::groupBy/$1');
+$routes->get('/search/(:any)', 'Karyawan::search/$1');
 
 /*
  * --------------------------------------------------------------------
